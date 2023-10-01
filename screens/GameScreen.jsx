@@ -6,6 +6,7 @@ import { nameToPic } from "../constants/Constants";
 import { useEffect } from "react";
 import { shuffle } from "../utils/ArrayUtils";
 import { StatusBar } from "expo-status-bar";
+import { Button } from "react-native-web";
 const names = Object.keys(nameToPic);
 
 export default function GameScreen() {
@@ -122,7 +123,10 @@ export default function GameScreen() {
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
         {/* <Image source={nameToPic[currentMember][1]} style={styles.image} /> */}
-        {nameButtons}
+
+      <Button style={styles.nameButtons}></Button>
+
+        {/* {nameButtons} */}
     </View>
   );
 }
