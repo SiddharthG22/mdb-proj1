@@ -111,12 +111,12 @@ export default function GameScreen() {
   // Style & return the view.
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Guess the Member</Text>
+      {/* <Text style={styles.title}>Guess the Member</Text> */}
       <StatusBar style="auto"/>
-      {/* <Text>Correct Answers: {currentScore}</Text>
+      <Text style={styles.scoreText}>Correct Answers: {currentScore}</Text>
       <Text>Total Questions: {totalQuestions}</Text>
-      <Text>Time Remaining: {timeRemainingStr} seconds</Text>
-      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> */}
+      <Text style={styles.timerText}>Time Remaining: {timeRemainingStr} seconds</Text>
+      {/* <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> * */}
       {/* {nameButtons} */}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
