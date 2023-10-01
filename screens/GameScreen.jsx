@@ -113,11 +113,11 @@ export default function GameScreen() {
     <View style={styles.container}>
       <Text>Guess the Member</Text>
       <StatusBar style="auto"/>
-      <Text>Correct Answers: {currentScore}</Text>
+      {/* <Text>Correct Answers: {currentScore}</Text>
       <Text>Total Questions: {totalQuestions}</Text>
       <Text>Time Remaining: {timeRemainingStr} seconds</Text>
-      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/>
-      {nameButtons}
+      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> */}
+      {/* {nameButtons} */}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
