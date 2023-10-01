@@ -111,18 +111,15 @@ export default function GameScreen() {
   // Style & return the view.
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
-      <StatusBar style="auto"/>
-      {/* TODO: Build out your UI using Text and Image components. */}
-      {/* <Text style={styles.title}>Guess the Member</Text> */}
-      {/* <Text>Correct Answers: {currentScore}</Text>
+      <Text style={styles.title}>Guess the Member</Text>
+      <Text>Correct Answers: {currentScore}</Text>
       <Text>Total Questions: {totalQuestions}</Text>
       <Text>Time Remaining: {timeRemainingStr} seconds</Text>
-      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> */}
+      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/>
+      {nameButtons}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
-      {/* {nameButtons} */}
     </View>
   );
 }
