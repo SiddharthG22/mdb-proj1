@@ -111,7 +111,7 @@ export default function GameScreen() {
   // Style & return the view.
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Guess the Member</Text>
+      <Text>Guess the Member</Text>
       <Text>Correct Answers: {currentScore}</Text>
       <Text>Total Questions: {totalQuestions}</Text>
       <Text>Time Remaining: {timeRemainingStr} seconds</Text>
