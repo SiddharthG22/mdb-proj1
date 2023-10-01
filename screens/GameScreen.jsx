@@ -114,8 +114,8 @@ export default function GameScreen() {
       {/* <Text style={styles.title}>Guess the Member</Text> */}
       <StatusBar style="auto"/>
       <Text style={styles.scoreText}>Correct Answers: {currentScore}</Text>
-      <Text>Total Questions: {totalQuestions}</Text>
       <Text style={styles.timerText}>Time Remaining: {timeRemainingStr} seconds</Text>
+      <Image source={nameToPic[currentMember][1]} style={styles.imageView} />
       {/* <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> * */}
       {/* {nameButtons} */}
       {/* Hint: What does the nameButtons list above hold? 
