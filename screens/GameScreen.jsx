@@ -10,6 +10,12 @@ const names = Object.keys(nameToPic);
 export default function GameScreen() {
   // TODO: Declare and initialize state variables here, using "useState".
 
+  const [gameOver, setGameOver] = useState(false);
+  const [nextRound, setNextRound] = useState(false);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
+  const [nameOptions, setNameOptions] = useState([]);
+
   // State for the timer is handled for you.
   const [timeLeft, setTimeLeft] = useState(5000);
 
@@ -21,6 +27,7 @@ export default function GameScreen() {
     } else {
       // Time has expired
       // TODO: update appropriate state variables
+      setGameOver(true);
     }
   };
 
@@ -44,13 +51,21 @@ export default function GameScreen() {
     nameOptions = shuffle(nameOptions);
 
     // TODO: Update state here.
-
     setTimeLeft(5000);
+    setNextRound(false);
+    setTotalQuestions(totalQuestions + 1);
+    setNameOptions([]);
   };
 
   // Called when user taps a name option.
   // TODO: Update correct # and total # state values.
-  const selectedNameChoice = (index) => {};
+  const selectedNameChoice = (index) => {
+    if (nameOptions[index] === nameToPic[correct][0]) {
+      setCurrentScore(currentScore + 1);
+    }
+    setTotalQuestions(totalQuestions + 1);
+    setNextRound(true);
+  };
 
   // Call the countDown() method every 10 milliseconds.
   useEffect(() => {
@@ -58,7 +73,7 @@ export default function GameScreen() {
     return function cleanup() {
       clearInterval(timer);
     };
-  });
+  }, [timeLeft]);
 
   // TODO: Finish this useEffect() hook such that we automatically
   // get the next round when the appropriate state variable changes.
@@ -68,6 +83,7 @@ export default function GameScreen() {
     },
     [
       /* TODO: Your State Variable Goes Here */
+      nextRound
     ]
   );
 
@@ -83,7 +99,7 @@ export default function GameScreen() {
         onPress={() => selectedNameChoice(j)}
       >
         <Text style={styles.buttonText}>
-          {/* TODO: Use something from state here. */}
+          {nameOptions[j]}
         </Text>
       </TouchableOpacity>
     );
@@ -95,9 +111,15 @@ export default function GameScreen() {
   return (
     <View>
       {/* TODO: Build out your UI using Text and Image components. */}
+      <Text style={styles.title}>Guess the Member</Text>
+      <Text>Correct Answers: {currentScore}</Text>
+      <Text>Total Questions: {totalQuestions}</Text>
+      <Text>Time Remaining: {timeRemainingStr} seconds</Text>
+      <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/>
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
+      {nameButtons}
     </View>
   );
 }
