@@ -112,6 +112,7 @@ export default function GameScreen() {
   return (
     <View style={styles.container}>
       <Text>Guess the Member</Text>
+      <StatusBar style="auto"/>
       <Text>Correct Answers: {currentScore}</Text>
       <Text>Total Questions: {totalQuestions}</Text>
       <Text>Time Remaining: {timeRemainingStr} seconds</Text>
