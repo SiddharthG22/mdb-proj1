@@ -124,7 +124,7 @@ export default function GameScreen() {
           Try to get a sense of what's going on in the for loop above. */}
         {/* <Image source={nameToPic[currentMember][1]} style={styles.image} /> */}
 
-      <Button style={styles.buttom}>nameOptions[0]</Button>
+      <Button style={styles.button}>nameOptions[0]</Button>
 
         {/* {nameButtons} */}
     </View>
