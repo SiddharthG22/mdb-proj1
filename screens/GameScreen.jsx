@@ -6,7 +6,6 @@ import { nameToPic } from "../constants/Constants";
 import { useEffect } from "react";
 import { shuffle } from "../utils/ArrayUtils";
 import { StatusBar } from "expo-status-bar";
-import { Button } from "react-native-web";
 const names = Object.keys(nameToPic);
 
 export default function GameScreen() {
@@ -112,21 +111,15 @@ export default function GameScreen() {
   // Style & return the view.
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>Guess the Member</Text> */}
       <StatusBar style="auto"/>
-      <Text style={styles.scoreText}>Correct Answers: {currentScore}</Text>
-      <Text style={styles.timerText}>Time Remaining: {timeRemainingStr} seconds</Text>
-      {/* <Image source={nameToPic[currentMember][0]} style={styles.imageView} /> */}
-      {/* <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> * */}
-      {/* {nameButtons} */}
+      <Text>Correct Answers: {currentScore}</Text>
+      <Text>Total Questions: {totalQuestions}</Text>
+      <Text>Time Remaining: {timeRemainingStr} seconds</Text>
+      {/* <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> */}
+      {nameButtons}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
-        {/* <Image source={nameToPic[currentMember][1]} style={styles.image} /> */}
-
-      <Button style={styles.button}>nameOptions[0]</Button>
-
-        {/* {nameButtons} */}
     </View>
   );
 }
