@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Image, Text, View, TouchableOpacity } from "react-native";
 
+
 import { styles } from "../constants/Styles";
 import { nameToPic } from "../constants/Constants";
 import { useEffect } from "react";
 import { shuffle } from "../utils/ArrayUtils";
 import { StatusBar } from "expo-status-bar";
+import { Button } from "react-native-web";
 const names = Object.keys(nameToPic);
 
 export default function GameScreen() {
@@ -16,6 +18,8 @@ export default function GameScreen() {
   const [currentScore, setCurrentScore] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [nameOptions, setNameOptions] = useState([]);
+  const [correctName, setCorrectName] = useState("");
+  const [correctImage, setCorrectImage] = useState(null);
 
   // State for the timer is handled for you.
   const [timeLeft, setTimeLeft] = useState(5000);
@@ -54,14 +58,15 @@ export default function GameScreen() {
     // TODO: Update state here.
     setTimeLeft(5000);
     setNextRound(false);
-    setTotalQuestions(totalQuestions + 1);
-    setNameOptions([]);
+    setNameOptions(nameOptions);
+    setCorrectName(correctName);
+    setCorrectImage(correctImage);
   };
 
   // Called when user taps a name option.
   // TODO: Update correct # and total # state values.
   const selectedNameChoice = (index) => {
-    if (nameOptions[index] === nameToPic[correct][0]) {
+    if (nameOptions[index] === correctName) {
       setCurrentScore(currentScore + 1);
     }
     setTotalQuestions(totalQuestions + 1);
@@ -82,10 +87,7 @@ export default function GameScreen() {
     () => {
       getNextRound();
     },
-    [
-      /* TODO: Your State Variable Goes Here */
-      nextRound
-    ]
+    [nextRound]
   );
 
   // Set up four name button components
@@ -112,10 +114,9 @@ export default function GameScreen() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
-      <Text>Correct Answers: {currentScore}</Text>
-      <Text>Total Questions: {totalQuestions}</Text>
-      <Text>Time Remaining: {timeRemainingStr} seconds</Text>
-      {/* <Image source={nameToPic[currentMember][1]} style={styles.memberImage}/> */}
+      <Text style={styles.scoreText}>Current Score: {currentScore} / {totalQuestions}</Text>
+      <Text style={styles.timerText}>Time Remaining: {timeRemainingStr} seconds</Text>
+      <Image style={styles.image} source={correctImage}/>
       {nameButtons}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?

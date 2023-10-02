@@ -26,6 +26,7 @@ for (var n in nameToPic) {
   Asset.loadAsync(nameToPic[n][1]);
 }
 
+
 // This is the default entry point of our application
 // This function returns JSX: a tree-like structure of React components
 export default function App() {
